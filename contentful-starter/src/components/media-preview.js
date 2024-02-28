@@ -7,7 +7,7 @@ import Container from './container'
 import Tags from './tags'
 import * as styles from './article-preview.module.css'
 
-const ArticlePreview = ({ posts, style, heading, key }) => {
+const MediaPreview = ({ posts, style, heading, key }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
   var articleStyle
@@ -35,7 +35,7 @@ const ArticlePreview = ({ posts, style, heading, key }) => {
           }
           return (
             <li key={post.slug}>
-              <Link to={`/reviews/${post.slug}`} className={styles.link}>
+              <Link to={`/works/${post.slug}`} className={styles.link}>
                 {titleImage}
                 <h2 className={styles.title}>{post.title}</h2>
                 <p>{post.authorName} {post.publicationInstitution}</p>
@@ -55,4 +55,4 @@ const ArticlePreview = ({ posts, style, heading, key }) => {
   )
 }
 
-export default ArticlePreview
+export default MediaPreview

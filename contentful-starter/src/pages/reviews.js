@@ -10,12 +10,12 @@ import ArticlePreview from '../components/article-preview'
 class ReviewIndex extends React.Component {
   render() {
     const reviews = get(this, 'props.data.allContentfulReviews.nodes')
+    const [hero] = get(this, 'props.data.allContentfulHero.nodes')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
         <Seo title="Review" />
-        <Hero title="Review" />
-        <ArticlePreview posts={reviews} />
+        <ArticlePreview posts={reviews} heading="Reviews" />
       </Layout>
     )
   }
@@ -29,9 +29,21 @@ export const pageQuery = graphql`
       nodes {
         title
         slug
+        exerpt
         date(formatString: "MMMM Do, YYYY")
         review {
           raw
+        }
+      }
+    }
+    allContentfulHero {
+      nodes {
+        signature {
+          gatsbyImage(
+            placeholder: BLURRED
+            width: 516
+            height: 51
+          )
         }
       }
     }

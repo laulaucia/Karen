@@ -5,22 +5,23 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
+import MediaPreview from '../components/media-preview'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes')
     const reviews = get(this, 'props.data.allContentfulReviews.nodes')
+    const media = get(this, 'props.data.allContentfulMediaType.nodes')
     const [hero] = get(this, 'props.data.allContentfulHero.nodes')
+    const home = {"home": true}
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
         <Hero
           image={hero.main.gatsbyImage}
-          title={author.name}
-          content={author.shortBio}
+          subtitle={hero.subtitle}
         />
-        <ArticlePreview posts={reviews} />
+        <MediaPreview posts={media}  heading="Work" key="works"/>
+        <ArticlePreview posts={reviews} style={home} heading="Reviews" key="reviews"/>
       </Layout>
     )
   }
@@ -30,37 +31,6 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { publishDate: DESC }) {
-      nodes {
-        title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImage(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-          )
-        }
-        description {
-          raw
-        }
-      }
-    }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      nodes {
-        name
-        shortBio {
-          raw
-        }
-        title
-        heroImage: image {
-          gatsbyImage(layout: CONSTRAINED, placeholder: BLURRED, width: 1180)
-        }
-      }
-    }
     allContentfulReviews {
       nodes {
         authorName
@@ -82,13 +52,34 @@ export const pageQuery = graphql`
     }
     allContentfulHero {
       nodes {
+        subtitle
         main {
           gatsbyImage(
             layout: FULL_WIDTH
             placeholder: BLURRED
             width: 424
-            height: 212
+            height: 700
           )
+        }
+        signature {
+          gatsbyImage(
+            placeholder: BLURRED
+            width: 383
+            height: 38
+          )
+        }
+      }
+    }
+    allContentfulMediaType {
+      nodes {
+        coverPhoto {
+          gatsbyImage(width: 380, height: 10)
+        }
+        title
+        children {
+          ... on ContentfulWorks {
+            id
+          }
         }
       }
     }

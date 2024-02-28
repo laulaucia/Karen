@@ -1,18 +1,30 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import * as styles from './navigation.module.css'
 
-const Navigation = () => (
+const Navigation = ({signature}) => (
   <nav role="navigation" className={styles.container} aria-label="Main">
     <Link to="/" className={styles.logoLink}>
-      <span className={styles.logo} />
-      <span className={styles.navigationItem}>Gatsby Starter Contentful</span>
+      {signature && (
+          <GatsbyImage alt="the artist's signature" image={signature} />
+        )}
     </Link>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
         <Link to="/" activeClassName="active">
           Home
+        </Link>
+      </li>
+      <li className={styles.navigationItem}>
+        <Link to="/artist/" activeClassName="active">
+          The Artist
+        </Link>
+      </li>
+      <li className={styles.navigationItem}>
+        <Link to="/works/" activeClassName="active">
+          Works
         </Link>
       </li>
       <li className={styles.navigationItem}>

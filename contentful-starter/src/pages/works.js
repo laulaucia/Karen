@@ -15,8 +15,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
         <Seo title="Blog" />
-        <Hero subtitle="Blog" />
-        <ArticlePreview posts={posts} style="blog"  heading="Blogs" key="blogs"/>
+        <ArticlePreview posts={posts} heading="Works"/>
       </Layout>
     )
   }
@@ -46,15 +45,15 @@ export const pageQuery = graphql`
       }
     }
     allContentfulHero {
-      nodes {
-        signature {
-          gatsbyImage(
-            placeholder: BLURRED
-            width: 516
-            height: 51
-          )
+        nodes {
+          signature {
+            gatsbyImage(
+              placeholder: BLURRED
+              width: 516
+              height: 51
+            )
+          }
         }
       }
-    }
   }
 `

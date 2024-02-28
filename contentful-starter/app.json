@@ -1,11 +1,11 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "Karen Lamassonne",
+  "description": "Karen Lamassonne | Colombian-US artist exhibits works in oil, watercolor and collage from exhibitions in US, Europe and Colombia.",
   "keywords": [
-    "contentful",
-    "gatsby",
-    "static",
-    "ssg"
+    "artist",
+    "art",
+    "Colombia",
+    "feminine"
   ],
   "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
   "success_url": "/",

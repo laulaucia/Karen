@@ -8,11 +8,13 @@ import Footer from './footer'
 class Template extends React.Component {
   render() {
     const { children } = this.props
+    const signature = this.props.signature
+    console.log(this.props)
 
     return (
       <>
         <Seo />
-        <Navigation />
+        <Navigation signature={signature}/>
         <main>{children}</main>
         <Footer />
       </>

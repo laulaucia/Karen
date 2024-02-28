@@ -1,9 +1,9 @@
 .hero {
-  align-items: flex-end;
+  /* align-items: flex-end;
   display: flex;
   margin: 0 auto;
   max-width: var(--size-max-width);
-  min-height: 200px;
+  min-height: 200px; */
   padding: 0 0 var(--size-gutter);
   position: relative;
 }
@@ -13,8 +13,8 @@
     Ensure golden ratio for the hero size while limiting it to some extend to
     the viewport width
   */
-  height: 61.8vh;
-  max-height: 560px;
+  /* height: 61.8vh;
+  max-height: 560px; */
   width: 100%;
 }
 
@@ -60,8 +60,8 @@
 
 @media (min-width: 1024px) {
   .image {
-    margin-left: auto;
-    width: 85%;
+    /* margin-left: auto; */
+    /* width: 85%; */
   }
 
   .details {

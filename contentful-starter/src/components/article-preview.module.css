@@ -7,6 +7,15 @@
   grid-gap: var(--space-3xl);
 }
 
+
+.article-list-home {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-gap: var(--space-3xl);
+} 
+
 .title {
   display: inline-block;
   font-size: var(--text-lg);
