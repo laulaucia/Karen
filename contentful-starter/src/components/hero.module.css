@@ -60,8 +60,9 @@
 
 @media (min-width: 1024px) {
   .image {
-    /* margin-left: auto; */
-    /* width: 85%; */
+    margin: 0 auto;
+    width: 85%;
+    max-width: 1200px;
   }
 
   .details {

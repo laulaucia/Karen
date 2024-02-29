@@ -9,7 +9,6 @@ import readingTime from 'reading-time'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
 import Tags from '../components/tags'
 import * as styles from './blog-post.module.css'
 
@@ -24,6 +23,7 @@ class ReviewPostTemplate extends React.Component {
     // )
     const plainTextBody = documentToPlainTextString(JSON.parse(post.review.raw))
     const { minutes: timeToRead } = readingTime(plainTextBody)
+    const [hero] = get(this, 'props.data.allContentfulHero.nodes')
     
     const options = {
       renderNode: {
@@ -38,22 +38,22 @@ class ReviewPostTemplate extends React.Component {
         },
       },
     };
+    var publication;
+    if(post.publicationInstitution){
+        publication = `${post.publicationInstitution} · `
+    } else { publication = ""}
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
         <Seo
           title={post.title}
           description={post.exerpt}
-        />
-        <Hero
-          title={post.subtitle}
-          content={post.review}
         />
         <div className={styles.container}>
             <h1>{post.title}</h1>
           <span className={styles.meta}>
             {post.authorName} &middot;{' '}
-            {post.publicationInstitution} &middot;{' '}
+            {publication}
             <time dateTime={post.date}>{post.date}</time> –{' '}
             {timeToRead} minute read
           </span>
@@ -102,7 +102,7 @@ export const pageQuery = graphql`
       title
       authorName
       publicationInstitution
-      date(formatString: "MMMM Do, YYYY")
+      date(formatString: "MMMM, YYYY")
       rawDate: date
       review {
         raw
@@ -116,5 +116,16 @@ export const pageQuery = graphql`
       slug
       title
     }
+    allContentfulHero {
+        nodes {
+          signature {
+            gatsbyImage(
+              placeholder: BLURRED
+              width: 516
+              height: 51
+            )
+          }
+        }
+      }
   }
 `

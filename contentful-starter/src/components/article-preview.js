@@ -11,7 +11,7 @@ const ArticlePreview = ({ posts, style, heading, key }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
   var articleStyle
-  console.log(key)
+
   if (style) {
     articleStyle = styles.articleListHome
   } else {

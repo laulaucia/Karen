@@ -49,8 +49,8 @@ export const pageQuery = graphql`
           signature {
             gatsbyImage(
               placeholder: BLURRED
-              width: 516
-              height: 51
+              width: 320
+              height: 30
             )
           }
         }

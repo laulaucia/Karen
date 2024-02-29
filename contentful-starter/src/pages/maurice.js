@@ -27,7 +27,7 @@ export default RootIndex
 export const pageQuery = graphql`
   query ArtistQuery {
     allContentfulLinksAndWhatsNew(
-        filter: {id: {eq: "87dc0360-a86d-57c8-b107-e99d60dcdd6e"}}
+        filter: {id: {eq: "5a5ea6dc-236e-5a0a-b15d-0d2be2257e0c"}}
       )  {
       nodes {
         title
@@ -49,8 +49,8 @@ export const pageQuery = graphql`
           signature {
             gatsbyImage(
               placeholder: BLURRED
-              width: 516
-              height: 51
+              width: 320
+              height: 30
             )
           }
         }

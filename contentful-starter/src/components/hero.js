@@ -3,7 +3,8 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import * as styles from './hero.module.css'
 
-const Hero = ({ image, subtitle }) => (
+const Hero = ({ image, subtitle }) => {
+  return(
   <div className={styles.hero}>
     {image && (
       <GatsbyImage className={styles.image} alt={subtitle} image={image} />
@@ -13,5 +14,5 @@ const Hero = ({ image, subtitle }) => (
     </div>
   </div>
 )
-
+    }
 export default Hero

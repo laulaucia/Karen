@@ -24,10 +24,7 @@ const MediaPreview = ({ posts, style, heading, key }) => {
       <ul className={articleStyle}>
         {posts.map((post) => {
           var titleImage;
-          if (post.heroImage) {
-            titleImage = <GatsbyImage alt="" image={post.heroImage.gatsbyImage} />;
-          }
-          else if (post.coverPhoto) {
+          if (post.coverPhoto) {
             titleImage = <GatsbyImage alt="" image={post.coverPhoto.gatsbyImage} />;
           }
           else {
@@ -36,8 +33,8 @@ const MediaPreview = ({ posts, style, heading, key }) => {
           return (
             <li key={post.slug}>
               <Link to={`/works/${post.slug}`} className={styles.link}>
-                {titleImage}
                 <h2 className={styles.title}>{post.title}</h2>
+                {titleImage}
                 <p>{post.authorName} {post.publicationInstitution}</p>
               </Link>
               <div>

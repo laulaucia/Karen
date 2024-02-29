@@ -4,53 +4,50 @@ import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-import ArticlePreview from '../components/article-preview'
+import MediaPreview from '../components/media-preview'
 
-class BlogIndex extends React.Component {
+class WorksIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
+    const posts = get(this, 'props.data.allContentfulMediaType.nodes')
     const [hero] = get(this, 'props.data.allContentfulHero.nodes')
+    const home = {"home": true}
+    console.log(`works page props: ${this.props}`)
+    console.log(this.props)
 
     return (
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
-        <Seo title="Blog" />
-        <ArticlePreview posts={posts} heading="Works"/>
+        <Seo title="Works" />
+        <MediaPreview posts={posts} heading="Works" style={home}/>
       </Layout>
     )
   }
 }
 
-export default BlogIndex
+export default WorksIndex
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
-    allContentfulBlogPost(sort: { publishDate: DESC }) {
-      nodes {
-        title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImage(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 424
-            height: 212
-          )
-        }
-        description {
-          raw
+  query WorkIndexQuery {
+    allContentfulMediaType {
+        nodes {
+          images {
+            gatsbyImage(layout: FULL_WIDTH, width: 300)
+            title
+            description
+          }
+          coverPhoto {
+            gatsbyImage(layout: FULL_WIDTH, width: 300)
+          }
+          title
+          slug
         }
       }
-    }
     allContentfulHero {
         nodes {
           signature {
             gatsbyImage(
               placeholder: BLURRED
-              width: 516
-              height: 51
+              width: 320
+              height: 30
             )
           }
         }

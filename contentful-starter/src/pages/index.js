@@ -18,7 +18,7 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
         <Hero
           image={hero.main.gatsbyImage}
-          subtitle={hero.subtitle}
+
         />
         <MediaPreview posts={media}  heading="Work" key="works"/>
         <ArticlePreview posts={reviews} style={home} heading="Reviews" key="reviews"/>
@@ -64,8 +64,8 @@ export const pageQuery = graphql`
         signature {
           gatsbyImage(
             placeholder: BLURRED
-            width: 383
-            height: 38
+            width: 320
+            height: 30
           )
         }
       }
@@ -73,9 +73,10 @@ export const pageQuery = graphql`
     allContentfulMediaType {
       nodes {
         coverPhoto {
-          gatsbyImage(width: 380, height: 10)
+          gatsbyImage(width: 320)
         }
         title
+        slug
         children {
           ... on ContentfulWorks {
             id

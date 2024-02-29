@@ -4,8 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: `Karen Lamassonne | Artist`,
+    description: `Colombian-US artist exhibits works in oil, watercolor and collage from exhibitions in US, Europe and Colombia.`,
+    image: `/subject.png`,
   },
   plugins: [
     "gatsby-transformer-sharp",
