@@ -5,19 +5,18 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Container from './container'
 import Tags from './tags'
-import * as styles from './article-preview.module.css'
+import * as styles from './media-preview.module.css'
 
 const MediaPreview = ({ posts, style, heading, key }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
   var articleStyle
-  console.log(key)
+
   if (style) {
-    articleStyle = styles.articleListHome
+    articleStyle = styles.imageList
   } else {
-    articleStyle = styles.articleList
+    articleStyle = styles.imageGrid
   }
-  
   return (
     <Container >
       <h2>{heading}</h2>
@@ -25,15 +24,15 @@ const MediaPreview = ({ posts, style, heading, key }) => {
         {posts.map((post) => {
           var titleImage;
           if (post.coverPhoto) {
-            titleImage = <GatsbyImage alt="" image={post.coverPhoto.gatsbyImage} />;
+            titleImage = <GatsbyImage alt="" image={post.coverPhoto.gatsbyImage} className={styles.linkImage}/>;
           }
           else {
             titleImage = ''
           }
           return (
-            <li key={post.slug}>
-              <Link to={`/works/${post.slug}`} className={styles.link}>
-                <h2 className={styles.title}>{post.title}</h2>
+            <li key={post.slug} >
+              <Link to={`/works/${post.slug}`} className={styles.linkGrid}>
+                <h2 className={styles.linkTitle}>{post.title}</h2>
                 {titleImage}
                 <p>{post.authorName} {post.publicationInstitution}</p>
               </Link>

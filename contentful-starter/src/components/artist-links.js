@@ -1,43 +1,39 @@
 import React from 'react'
 
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Container from './container'
-import * as styles from './article-preview.module.css'
+import * as styles from './artist-links.module.css'
+import { first } from 'lodash'
 
 
-const ArtistLinks = ({ image, title, text }) => { 
+const ArtistLinks = ({ image, title, text, images }) => { 
     
-    const plainTextDescription = documentToPlainTextString(
-        JSON.parse(text.raw)
-      )
-    const plainTextBody = documentToPlainTextString(JSON.parse(text.raw))
-    
-    const options = {
-        renderNode: {
-          [BLOCKS.EMBEDDED_ASSET]: (node) => {
-          const { gatsbyImage, description } = node.data.target
-          return (
-             <GatsbyImage
-                image={getImage(gatsbyImage)}
-                alt={description}
-             />
-           )
-          },
-        },
-      };
-      console.log(options)
+    const firstImage = images[0];
+    const bodyImages = images.slice(1);
+
     
     return (
 
-        <Container>
+        <Container style={styles.content}>
             {image && (
             <GatsbyImage className={styles.image} alt="Karen among her art" image={image} />
             )}
             <h1>{title}</h1>
-                <div className={styles.content}>{text?.raw && renderRichText(text, options)}</div>
+            <div className={styles.gridBox}>
+                <div>
+                    <div className={styles.content}>{text?.raw && renderRichText(text)}</div>
+                    <div className={styles.contentImages}>
+                     {bodyImages?.map((img) => (
+                            <GatsbyImage  alt={img.title} image={img.gatsbyImage} />
+                        ))}
+                    </div>
+                </div>
+                <div className={styles.gridImage}>
+                    <GatsbyImage alt={firstImage.title} image={firstImage.gatsbyImage} />
+                </div>
+            </div>
                 
         </Container>
         )

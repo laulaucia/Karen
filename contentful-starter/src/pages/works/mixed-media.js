@@ -4,9 +4,10 @@ import get from 'lodash/get'
 
 import Seo from '../../components/seo'
 import Layout from '../../components/layout'
-import Hero from '../../components/hero'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import Container from '../../components/container'
+import * as styles from './media.module.css'
+import WorksLinks from '../../components/works-links'
 
 
 class MixedMediaIndex extends React.Component {
@@ -18,17 +19,18 @@ class MixedMediaIndex extends React.Component {
     return (
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
         <Seo title="Blog" />
-        <Hero  image={post.coverPhoto}/>
         <Container>
+            <WorksLinks/>
             <h1>{post.title}</h1>
-
-            {images.map((img) => (
-                <Container>
+            <div className={styles.imageGrid}>
+                {images?.map((img) => (
+                  <div>
                     <GatsbyImage  alt={img.title} image={img.gatsbyImage} />
                     <h2>{img.title}</h2>
                     <p>{img.description}</p>
-                </Container>
-                ))}
+                  </div>
+                    ))}
+            </div>
        </Container>
       </Layout>
     )
@@ -45,7 +47,9 @@ export const pageQuery = graphql`
           id
           slug
           images {
-            gatsbyImage(width: 300)
+            gatsbyImage(
+                placeholder: BLURRED
+                width: 300)
             title
             description
           }

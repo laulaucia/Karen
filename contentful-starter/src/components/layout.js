@@ -9,7 +9,6 @@ class Template extends React.Component {
   render() {
     const { children } = this.props
     const signature = this.props.signature
-    console.log(this.props)
 
     return (
       <>

@@ -21,8 +21,8 @@
   --space-md: 8px;
   --space-lg: 16px;
   --space-xl: 20px;
-  --space-2xl: 24px;
-  --space-3xl: 48px;
+  --space-2xl: 50px;
+  --space-3xl: 120px;
 
   /* line-height */
   --solid: 1;
@@ -62,12 +62,12 @@
   /* size */
   --text-lead: var(--text-lg);
   --text-prose: var(--text-md);
-  --text-title: var(--text-3xl);
+  --text-title: var(--text-xl);
   /* tracking */
   --text-prose-tracking: -0.011em;
 
   /* size */
-  --size-gutter: var(--space-2xl);
+  --size-gutter: var(--space-xl);
   --size-logo: var(--space-2xl);
   --size-max-width: 80rem;
 }

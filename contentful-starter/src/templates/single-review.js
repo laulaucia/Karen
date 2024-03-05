@@ -10,7 +10,7 @@ import readingTime from 'reading-time'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Tags from '../components/tags'
-import * as styles from './blog-post.module.css'
+import * as styles from './single-review.module.css'
 
 class ReviewPostTemplate extends React.Component {
   render() {

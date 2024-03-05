@@ -16,6 +16,7 @@ class RootIndex extends React.Component {
             text={links.entry}
             image={links.hero.gatsbyImage}
             title={links.title}
+            images={links.bodyimages}
         />
       </Layout>
     )
@@ -36,12 +37,17 @@ export const pageQuery = graphql`
             layout: FULL_WIDTH
             placeholder: BLURRED
             width: 424
-            height: 212
+            height: 240
           )
         }
         entry {
             raw
         }
+        bodyimages {
+            gatsbyImage(width: 700)
+            description
+            title
+          }
       }
     }
     allContentfulHero {

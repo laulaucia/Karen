@@ -11,8 +11,6 @@ class WorksIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulMediaType.nodes')
     const [hero] = get(this, 'props.data.allContentfulHero.nodes')
     const home = {"home": true}
-    console.log(`works page props: ${this.props}`)
-    console.log(this.props)
 
     return (
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
@@ -27,7 +25,7 @@ export default WorksIndex
 
 export const pageQuery = graphql`
   query WorkIndexQuery {
-    allContentfulMediaType {
+    allContentfulMediaType(sort: {slug: ASC}) {
         nodes {
           images {
             gatsbyImage(layout: FULL_WIDTH, width: 300)

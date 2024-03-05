@@ -41,28 +41,14 @@
   margin: 0;
 }
 
-@media (min-width: 480px) {
-  .details {
-    padding-top: var(--space-3xl);
-  }
-}
 
 @media (min-width: 768px) {
-  .hero {
-    padding-top: var(--size-gutter);
-  }
 
-  .details {
-    max-width: 44rem;
-    padding: var(--space-3xl) var(--size-gutter) 0;
-  }
-}
-
-@media (min-width: 1024px) {
   .image {
     margin: 0 auto;
-    width: 85%;
-    max-width: 1200px;
+    width: 50%;
+    max-width: 700px;
+    padding-top: 30px;
   }
 
   .details {

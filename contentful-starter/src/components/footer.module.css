@@ -3,7 +3,6 @@
   font-size: var(--text-sm);
   margin-top: var(--space-2xl);
   padding: var(--space-2xl) 0;
-  text-align: right;
 }
 
 .container a {
@@ -14,4 +13,25 @@
 .container a:hover {
   border-bottom-color: var(--primary);
   color: var(--primary);
+}
+.disclaimer {
+  font-size: 11px;
+  color: darkgray;
+  max-width: 750px;
+  text-align: left;
+}
+
+.madeby {
+  margin-top: 25px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+  }
+  .madeby {
+    margin-top: 0px;
+  }
 }
