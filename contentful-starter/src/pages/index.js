@@ -71,7 +71,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulMediaType(sort: {slug: ASC}) {
+    allContentfulMediaType(sort: {title: ASC}) {
       nodes {
         coverPhoto {
           gatsbyImage(width: 320)

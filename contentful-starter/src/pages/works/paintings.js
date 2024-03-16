@@ -17,7 +17,7 @@ class MixedMediaIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
-        <Seo title="Blog" />
+        <Seo title="Paintings" />
         <Container>
             <WorksLinks/>
             <h1>{post.title}</h1>
@@ -26,7 +26,7 @@ class MixedMediaIndex extends React.Component {
                 {images?.map((img) => (
                   <div>
                     <GatsbyImage  alt={img.title} image={img.gatsbyImage} />
-                    <h2>{img.title}</h2>
+                    <p>{img.title}</p>
                     <p>{img.description}</p>
                   </div>
                   ))}

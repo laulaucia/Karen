@@ -25,7 +25,7 @@ export default WorksIndex
 
 export const pageQuery = graphql`
   query WorkIndexQuery {
-    allContentfulMediaType(sort: {slug: ASC}) {
+    allContentfulMediaType(sort: {title: ASC}) {
         nodes {
           images {
             gatsbyImage(layout: FULL_WIDTH, width: 300)
