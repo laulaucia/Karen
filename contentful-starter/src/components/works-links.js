@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import * as styles from './navigation.module.css'
 
 const WorksLinks = ({signature}) => (
-  <nav role="navigation" className={styles.container} aria-label="works">
+  <nav role="navigation" className={styles.navContainer} aria-label="works">
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
         <Link to="/works/paintings" activeClassName="active">

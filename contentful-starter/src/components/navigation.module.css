@@ -14,6 +14,13 @@
   gap: var(--space-xl);
 }
 
+.workNavigation {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  gap: var(--space-xl);
+}
+
 .navigationItem {
   display: inline-flex;
   align-items: center;
@@ -43,9 +50,18 @@
 @media (max-width: 767px) {
   .container {
     flex-direction: column;
+    padding: 20px;
   }
   .navigation {
-    margin-top: 30px;
+    margin-top: 15px;
+  }
+  .navContainer {
+    margin-top: 0px;
+    flex-direction: column;
+    .navigation {
+      gap: 0px;
+      margin-top: 0px;
+    }
   }
   .logoLink > span:last-child {
     border: 0;
