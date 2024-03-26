@@ -28,6 +28,9 @@ export const pageQuery = graphql`
     allContentfulReviews(sort: { date: DESC }) {
       nodes {
         title
+        authorName
+        publicationInstitution
+        role
         slug
         exerpt
         date(formatString: "MMMM Do, YYYY")

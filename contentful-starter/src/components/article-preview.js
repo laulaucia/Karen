@@ -7,21 +7,15 @@ import Container from './container'
 import Tags from './tags'
 import * as styles from './article-preview.module.css'
 
-const ArticlePreview = ({ posts, style, heading, key }) => {
+const ArticlePreview = ({ posts, heading, key }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
-  var articleStyle
 
-  if (style) {
-    articleStyle = styles.articleListHome
-  } else {
-    articleStyle = styles.articleList
-  }
   
   return (
     <Container >
       <h2>{heading}</h2>
-      <ul className={articleStyle}>
+      <ul className={styles.articleListHome}>
         {posts.map((post) => {
           var titleImage;
           if (post.heroImage) {
@@ -38,15 +32,11 @@ const ArticlePreview = ({ posts, style, heading, key }) => {
               <Link to={`/reviews/${post.slug}`} className={styles.link}>
                 {titleImage}
                 <h2 className={styles.title}>{post.title}</h2>
-                <p>{post.authorName} {post.publicationInstitution}</p>
+                <p>{post.authorName} &middot;{' '} {post.publicationInstitution} &middot;{' '} <time dateTime={post.date}>{post.date}</time></p>
+                <div>
+                  {post.exerpt}
+                </div>
               </Link>
-              <div>
-                {post.exerpt}
-              </div>
-              <div className={styles.meta}>
-                <small className="meta">{post.publishDate}</small>
-                <Tags tags={post.tags} />
-              </div>
             </li>
           )
         })}

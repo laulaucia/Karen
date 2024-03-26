@@ -33,7 +33,7 @@ export const pageQuery = graphql`
             description
           }
           coverPhoto {
-            gatsbyImage(layout: FULL_WIDTH, width: 300)
+            gatsbyImage( width: 500)
           }
           title
           slug

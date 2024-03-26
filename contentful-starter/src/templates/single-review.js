@@ -17,7 +17,6 @@ class ReviewPostTemplate extends React.Component {
     const post = get(this.props, 'data.contentfulReviews')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
-    console.log(this.props)
     // const plainTextDescription = documentToPlainTextString(
     //   JSON.parse(post.description.raw)
     // )
