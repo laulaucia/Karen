@@ -1,12 +1,18 @@
 .homeText {
     background: rgba(255, 245, 253, .85);
-    margin-top: -50%;
+    margin-top: -33%;
     position: relative;
     z-index: 2;
 }
 
+@media (min-width: 768px) {
+    .homeText > div {
+        max-width: var(--size-max-home-hero) !important;
+    }
+}
+
 @media (max-width: 767px) {
     .homeText {
-        margin-top: -100%;
+        margin-top: -65%;
     }
 }

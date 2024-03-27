@@ -16,9 +16,6 @@
   /* height: 61.8vh;
   max-height: 560px; */
   width: 100%;
-  :hover {
-    mix-blend-mode: luminosity;
-  }
 }
 h1 {
   margin: var(--space-2xl) auto;

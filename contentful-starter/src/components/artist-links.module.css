@@ -61,6 +61,12 @@
     grid-gap:30px;
   }
 
+  .credit {
+    font-size: 12px;
+    margin-top: 2px;
+    text-align: right;
+  }
+
   @media (max-width: 767px) {
     .grid-box {
       grid-template-columns: 1fr;

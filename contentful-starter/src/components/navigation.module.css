@@ -54,7 +54,6 @@
 }
 
 .logoLink:hover {
-  mix-blend-mode: hard-light;
   transform: translateY(2px)
 }
 
