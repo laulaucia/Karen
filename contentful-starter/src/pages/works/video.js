@@ -21,11 +21,12 @@ class MixedMediaIndex extends React.Component {
         <Container>
             <WorksLinks/>
             <h1>{post.title}</h1>
+            <p className={styles.descriptor}>Selected images from Storyboard for the feature film Pura Sangre directed by Luis Ospina in 1982</p>
             <div className={styles.imageGrid}>
                 {images?.map((img) => (
                   <div>
                     <GatsbyImage  alt={img.title} image={img.gatsbyImage} />
-                    <p>{img.title}</p>
+                    <p><strong>{img.title}</strong></p>
                     <p>{img.description}</p>
                   </div>
                     ))}
@@ -72,7 +73,7 @@ export const pageQuery = graphql`
         signature {
           gatsbyImage(
             placeholder: BLURRED
-            width: 320
+            width: 400
             height: 30
           )
         }

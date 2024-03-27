@@ -26,7 +26,7 @@ class MixedMediaIndex extends React.Component {
                 {images?.map((img) => (
                   <div>
                     <GatsbyImage  alt={img.title} image={img.gatsbyImage} />
-                    <p>{img.title}</p>
+                    <p><strong>{img.title}</strong></p>
                     <p>{img.description}</p>
                   </div>
                     ))}
@@ -67,7 +67,7 @@ export const pageQuery = graphql`
         signature {
           gatsbyImage(
             placeholder: BLURRED
-            width: 320
+            width: 400
             height: 30
           )
         }
