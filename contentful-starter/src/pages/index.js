@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import Hero from '../components/hero'
 import MediaPreview from '../components/media-preview'
 import ArtistLinks from '../components/artist-links'
+import * as styles from './index.module.css'
 
 
 class RootIndex extends React.Component {
@@ -13,18 +14,19 @@ class RootIndex extends React.Component {
     const media = get(this, 'props.data.allContentfulMediaType.nodes')
     const [hero] = get(this, 'props.data.allContentfulHero.nodes')
     const [links]= get(this, 'props.data.allContentfulLinksAndWhatsNew.nodes')
-    const home = {"home": true}
 
     return (
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
         <Hero
           image={hero.main.gatsbyImage}
         />
-        <ArtistLinks
+        <div className={styles.homeText}>
+          <ArtistLinks
             text={links.entry}
             title={links.title}
             images={links.bodyimages}
-          />
+            />
+          </div>
         <MediaPreview posts={media}  heading="Work" key="works"/>
       </Layout>
     )

@@ -54,16 +54,14 @@
         margin-top: 30px;
     }
   }
+
   .content-images {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap:30px;
   }
 
-  @media (max-width: 460px) {
-    .content{
-        max-width: 320px;
-    }
+  @media (max-width: 767px) {
     .grid-box {
       grid-template-columns: 1fr;
     }
@@ -72,7 +70,12 @@
       order: -1;
       max-width: 100%;
     }
+  }
 
+  @media (max-width: 460px) {
+    .content{
+        max-width: 320px;
+    }
     .content-images {
       margin: 0 auto;
     }

@@ -5,6 +5,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 30px;
+    div {
+        transition: transform .5s;
+    }
+    div:hover, div:active {
+        transform: scale(1.1);
+    }
 }
 
 .descriptor {

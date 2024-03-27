@@ -4,6 +4,13 @@
     list-style: none;
     display: grid;
     grid-gap: var(--space-xl);
+    li {
+        display: grid;
+        transition: transform .5s;
+    }
+    li:hover, li:active {
+        transform: scale(1.03);
+    }
 }
 
 .image-grid {
@@ -14,8 +21,12 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: var(--space-xl);
 
-    & li {
+    li {
         display: grid;
+        transition: transform .2s;
+    }
+    li:hover, li:active {
+        transform: scale(1.07);
     }
 }
 

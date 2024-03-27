@@ -39,7 +39,7 @@ const MediaPreview = ({ posts, style, heading, key }) => {
               <div>
                 {post.exerpt}
               </div>
-              <div className={styles.meta}>
+              <div>
                 <small className="meta">{post.publishDate}</small>
                 <Tags tags={post.tags} />
               </div>
