@@ -10,7 +10,8 @@ function BoxCarousel({images}) {
 
   const [imageToShow, setImageToShow] = useState({});
   const [lightboxDisplay, setLightBoxDisplay] = useState(false);
-  
+
+
   //function to show a specific image in the lightbox, amd make lightbox visible
   const showImage = (image) => {
     setImageToShow(image);
@@ -45,10 +46,27 @@ function BoxCarousel({images}) {
       setImageToShow(nextImage);
     }
   };
+
+  const handleKeyDown = (e, image) => {
+    // check keys if you want
+    if (e.keyCode === 27) {
+      hideLightBox();
+    }
+    if (e.keyCode === 37) {
+      showNext(e);
+    }
+    if (e.keyCode === 39) {
+      showPrev(e);
+    }
+    if (e.keyCode === 13) {
+      showImage(e.target);
+    }
+
+  } 
   
   //looping through our images array to create img elements
   const imageCards = images.map((image) => (
-    <div className={styles.imageGrid} onClick={() => showImage(image)} >
+    <div className={styles.imageGrid} onClick={() => showImage(image)} onKeyDown={handleKeyDown(image)} tabIndex={0} role='tab'>
         <GatsbyImage  alt={image.title} image={image.gatsbyImage} />
         <div className={styles.description}>
           <strong>{image.title}</strong>
@@ -64,9 +82,9 @@ function BoxCarousel({images}) {
       
       {
         lightboxDisplay ? 
-        <div className={styles.lightbox} onClick={hideLightBox} >
-          <button onClick={showPrev}>⇐</button>
-          <div className={styles.lightboxImg}>
+        <div className={styles.lightbox} onClick={hideLightBox} onKeyDown={handleKeyDown} role="button" tabIndex={0}>
+          <button onClick={showPrev} onKeyDown={handleKeyDown}>⇐</button>
+          <div id="lightbox" className={styles.lightboxImg}>
               <GatsbyImage  alt={imageToShow.title} image={imageToShow.gatsbyImage} />
               <div className={styles.description}>
                 <strong>{imageToShow.title}</strong>
@@ -74,7 +92,7 @@ function BoxCarousel({images}) {
                 {imageToShow.description}
               </div>
           </div>
-          <button onClick={showNext}>⇒</button>
+          <button onClick={showNext} onKeyDown={handleKeyDown}>⇒</button>
         </div>
        : ""
       }

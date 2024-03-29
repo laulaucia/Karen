@@ -23,11 +23,6 @@
     margin-top: 6px;
 }
 
-.image-card {
-    width: 30vw;
-    height: 30vw;
-    object-fit: cover;
-  }
   
 .lightbox-img {
     max-height: 75vh;
