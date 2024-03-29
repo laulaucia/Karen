@@ -1,12 +1,10 @@
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
 import get from 'lodash/get'
-
 import Seo from '../../components/seo'
 import Layout from '../../components/layout'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import BoxCarousel from '../../components/box-carousel'
 import Container from '../../components/container'
-import * as styles from './media.module.css'
 import WorksLinks from '../../components/works-links'
 
 
@@ -16,21 +14,14 @@ class MixedMediaIndex extends React.Component {
     const [hero] = get(this, 'props.data.allContentfulHero.nodes')
     const images = post.images
 
+
     return (
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
         <Seo title="Mixed Media" />
         <Container>
             <WorksLinks/>
             <h1>{post.title}</h1>
-            <div className={styles.imageGrid}>
-                {images?.map((img) => (
-                  <div>
-                    <GatsbyImage  alt={img.title} image={img.gatsbyImage} />
-                    <p><strong>{img.title}</strong></p>
-                    <p>{img.description}</p>
-                  </div>
-                    ))}
-            </div>
+            <BoxCarousel images={images}/>
        </Container>
       </Layout>
     )

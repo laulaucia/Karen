@@ -10,8 +10,6 @@ const ArtistLinks = ({ image, title, text, images }) => {
     
     const firstImage = images[0];
     const bodyImages = images.slice(1);
-
-    console.log(firstImage)
     
     
     return (

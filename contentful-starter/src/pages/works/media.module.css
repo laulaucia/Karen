@@ -8,13 +8,20 @@
     div {
         transition: transform .5s;
     }
-    div:hover, div:active {
+    div:hover {
         transform: scale(1.1);
     }
 }
 
 .descriptor {
     margin: var(--space-2xl) auto;
+}
+
+
+.description {
+    font-size: var(--text-sm);
+    line-height: var(--solid);
+    margin-top: 6px;
 }
 
 @media (max-width: 460px) {

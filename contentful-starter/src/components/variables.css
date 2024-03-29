@@ -10,6 +10,7 @@
 
   /* palette */
   --pale: #fff5fd;
+  --pale-transparent: rgba(255, 245, 253, .85);
   --white: #fff;
   --black: #000;
   --black-fade-5: rgba(0, 0, 0, 0.05);

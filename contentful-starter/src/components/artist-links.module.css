@@ -26,10 +26,12 @@
   
   .link {
     text-decoration: none;
+    color: var(--primary);
   }
   
   .link:hover .title {
     border-bottom-color: var(--primary);
+    font-weight: var(--bold);
   }
   
   .meta {
@@ -52,6 +54,13 @@
       margin: 0 auto;
       & blockquote {
         margin-top: 30px;
+      }
+      a {
+        color: var(--primary);
+        font-weight: var(--semibold);
+        &:hover {
+          border-bottom: solid 2px var(--primary);
+      }
     }
   }
 

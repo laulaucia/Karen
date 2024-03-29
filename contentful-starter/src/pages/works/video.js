@@ -1,13 +1,12 @@
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
 import get from 'lodash/get'
-
 import Seo from '../../components/seo'
 import Layout from '../../components/layout'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import BoxCarousel from '../../components/box-carousel'
 import Container from '../../components/container'
-import * as styles from './media.module.css'
 import WorksLinks from '../../components/works-links'
+import * as styles from './media.module.css'
 
 class MixedMediaIndex extends React.Component {
   render() {
@@ -22,15 +21,7 @@ class MixedMediaIndex extends React.Component {
             <WorksLinks/>
             <h1>{post.title}</h1>
             <p className={styles.descriptor}>Selected images from Storyboard for the feature film Pura Sangre directed by Luis Ospina in 1982</p>
-            <div className={styles.imageGrid}>
-                {images?.map((img) => (
-                  <div>
-                    <GatsbyImage  alt={img.title} image={img.gatsbyImage} />
-                    <p><strong>{img.title}</strong></p>
-                    <p>{img.description}</p>
-                  </div>
-                    ))}
-            </div>
+            <BoxCarousel images={images}/>
             <Container>
                 <div style={{padding:'62.5% 0 0 0', position:'relative'}}><iframe src="https://player.vimeo.com/video/160557567?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style={{position:'absolute', top:'0', left:'0', width: '100%', height:'100%'}} title="RUIDO"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
             </Container>

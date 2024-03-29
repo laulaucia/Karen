@@ -26,6 +26,7 @@
 
 .link {
   text-decoration: none;
+  color: var(--primary);
 }
 
 .link:hover .title {

@@ -4,7 +4,6 @@ import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 
 class ReviewIndex extends React.Component {
@@ -14,7 +13,7 @@ class ReviewIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} signature={hero.signature.gatsbyImage}>
-        <Seo title="Review" />
+        <Seo title="Reviews" />
         <ArticlePreview posts={reviews} heading="Reviews" />
       </Layout>
     )
