@@ -38,11 +38,6 @@ const Seo = ({ description = '', lang = 'en', meta = [], title, image }) => {
           content: image,
         },
         {
-          name: `icon`,
-          type: `image/png`,
-          href: `./static/Subject.png`,
-        },
-        {
           property: `og:title`,
           content: title,
         },

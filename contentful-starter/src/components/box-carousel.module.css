@@ -27,6 +27,7 @@
 .lightbox-img {
     max-height: 75vh;
     transform: scale(1.4);
+    transition: transform .5s;
 }
 
 .lightbox {

@@ -59,7 +59,7 @@ function BoxCarousel({images}) {
       showPrev(e);
     }
     if (e.keyCode === 13) {
-      showImage(e.target);
+      showImage(image);
     }
 
   } 
