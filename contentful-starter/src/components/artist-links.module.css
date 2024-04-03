@@ -90,6 +90,7 @@
   @media (max-width: 460px) {
     .content{
         max-width: 320px;
+        word-break: break-word;
     }
     .content-images {
       margin: 0 auto;
